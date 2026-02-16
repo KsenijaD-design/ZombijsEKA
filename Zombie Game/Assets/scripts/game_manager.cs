@@ -20,7 +20,7 @@ public class game_manager : MonoBehaviour
     private int score;
     public TMP_Text scoreText;
     
-    public GameObject ColliderLose;
+    
     
     public GameObject EndPanel;
     
@@ -33,6 +33,8 @@ public class game_manager : MonoBehaviour
         jump = InputSystem.actions.FindAction("Jump");
         
         UpdateScore(0);
+        EndPanel.SetActive(false);
+        End();
     }
 
     void SelectZombie(int index)
@@ -87,7 +89,8 @@ public class game_manager : MonoBehaviour
     
     public void End()
     {
-        if (zombies == null)
+        
+        if (zombies.Length < 0)
         {
             EndPanel.SetActive(true);
         }

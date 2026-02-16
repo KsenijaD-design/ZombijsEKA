@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.4570303, y: 1.8, z: -9.708518}
-  m_LocalScale: {x: 1.6938, y: 1.6938, z: 1.6938}
+  m_LocalScale: {x: 2.2627473, y: 2.2627473, z: 2.2627473}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,3 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1adeabd18597040b5fcb6185650a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::createobj
+  pointvalue: 1
+  ps: {fileID: 9157105887711914197, guid: c4f829cb7dd4b864caf8832ec5b1ee55, type: 3}

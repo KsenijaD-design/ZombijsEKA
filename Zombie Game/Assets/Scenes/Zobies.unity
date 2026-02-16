@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &36567364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 30c5e465dc21c534bada8d020bae91f4, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1385,7 +1385,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7d5dc75f016d8479ea6b6367a65022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::losecollider
-  GameManager: {fileID: 0}
+  GameManager: {fileID: 1451317513}
 --- !u!1 &1451317512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1458,6 @@ MonoBehaviour:
   pushForce: {x: -130, y: 150, z: 0}
   timerText: {fileID: 582160013}
   scoreText: {fileID: 138782451}
-  ColliderLose: {fileID: 1440927189}
   EndPanel: {fileID: 36567363}
 --- !u!4 &1451317514
 Transform:

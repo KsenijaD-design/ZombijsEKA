@@ -9,9 +9,9 @@ public class losecollider : MonoBehaviour
         GameManager = GameObject.Find("Game Manager").GetComponent<game_manager>();
     }
 
-    public void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Zombie"))
+        if (other.CompareTag("Zombie"))
         {
             Destroy(other.gameObject);
             GameManager.End();
