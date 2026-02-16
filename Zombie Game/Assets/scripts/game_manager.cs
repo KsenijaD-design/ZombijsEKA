@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class game_manager : MonoBehaviour
 {
@@ -86,13 +88,18 @@ public class game_manager : MonoBehaviour
         score += scoreToAdd;
         scoreText.text = "Score:" + score;
     }
-    
+
+    public void GameRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void End()
     {
         
         if (zombies.Length < 0)
         {
             EndPanel.SetActive(true);
+            
         }
     }
 }
