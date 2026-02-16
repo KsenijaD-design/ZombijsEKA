@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.Rendering;
 
 public class game_manager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class game_manager : MonoBehaviour
     public TMP_Text timerText;
 
     private float time = 0;
+
+    private int score;
+    public TMP_Text scoreText;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +26,8 @@ public class game_manager : MonoBehaviour
         left = InputSystem.actions.FindAction("Prev Zombie");
         right = InputSystem.actions.FindAction("Next Zombie");
         jump = InputSystem.actions.FindAction("Jump");
+        
+        UpdateScore(0);
     }
 
     void SelectZombie(int index)
@@ -66,5 +72,11 @@ public class game_manager : MonoBehaviour
         }
         time += Time.deltaTime;
         timerText.text = "Time:" + time.ToString("F") + "s";
+    }
+
+    public void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Score:" + score;
     }
 }
