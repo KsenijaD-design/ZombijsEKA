@@ -6,6 +6,7 @@ public class createobj : MonoBehaviour
 {
     private game_manager GameManager;
     public int pointvalue = 1;
+    public ParticleSystem ps;
     void Start()
     {
         GameManager = GameObject.Find("Game Manager").GetComponent<game_manager>();
@@ -14,6 +15,7 @@ public class createobj : MonoBehaviour
     {
         Destroy(gameObject);
         GameManager.UpdateScore(pointvalue);
+        Instantiate(ps, transform.position, ps.transform.rotation);
     }
     
     

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
@@ -18,6 +19,10 @@ public class game_manager : MonoBehaviour
 
     private int score;
     public TMP_Text scoreText;
+    
+    public GameObject ColliderLose;
+    
+    public GameObject EndPanel;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,5 +83,13 @@ public class game_manager : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = "Score:" + score;
+    }
+    
+    public void End()
+    {
+        if (zombies == null)
+        {
+            EndPanel.SetActive(true);
+        }
     }
 }
