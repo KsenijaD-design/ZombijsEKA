@@ -5,9 +5,11 @@ using TMPro;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using Random = System.Random;
 
 public class game_manager : MonoBehaviour
 {
+    
     public GameObject selectedZombie;
     public GameObject[] zombies;
     public Vector3 selectedSize;
@@ -18,25 +20,26 @@ public class game_manager : MonoBehaviour
     public TMP_Text timerText;
 
     private float time = 0;
-
     private int score;
     public TMP_Text scoreText;
     
-    
-    
     public GameObject EndPanel;
+    
+    public AudioSource JumpAudio;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Time.timeScale = 0f;
+        EndPanel.SetActive(false);
         SelectZombie(0);
         left = InputSystem.actions.FindAction("Prev Zombie");
         right = InputSystem.actions.FindAction("Next Zombie");
         jump = InputSystem.actions.FindAction("Jump");
         
         UpdateScore(0);
-        EndPanel.SetActive(false);
-        End();
+        
+        
     }
 
     void SelectZombie(int index)
@@ -76,7 +79,12 @@ public class game_manager : MonoBehaviour
         {
             Rigidbody rb = selectedZombie.GetComponent<Rigidbody>();
             rb.AddForce(pushForce);
-            Debug.Log("Jump"); 
+            Debug.Log("Jump");
+            
+            AudioSource audio = selectedZombie.GetComponent<AudioSource>();
+            audio.pitch = UnityEngine.Random.Range(0.8f, 1.2f); 
+            audio.Play();
+            
             
         }
         time += Time.deltaTime;
@@ -92,14 +100,11 @@ public class game_manager : MonoBehaviour
     public void GameRestart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
     }
     public void End()
     {
-        
-        if (zombies.Length < 0)
-        {
-            EndPanel.SetActive(true);
-            
-        }
+        EndPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

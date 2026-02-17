@@ -9,11 +9,11 @@ public class createobj : MonoBehaviour
     public GameObject ps;
     public float RotationSpeedmax = 50f;
     public float RotationSpeedmin = 10f;
+    
+    public AudioSource explosion;
     void Start()
     {
         GameManager = GameObject.Find("Game Manager").GetComponent<game_manager>();
-        
-        
     }
     private void OnTriggerEnter(Collider collision)
     {
@@ -21,6 +21,11 @@ public class createobj : MonoBehaviour
         {
             GameObject exp = Instantiate(ps);
             exp.transform.position = transform.position;
+
+            explosion.transform.parent = null;
+            explosion.pitch = Random.Range(0.8f, 2f);
+            explosion.Play();
+            Destroy(explosion, 2f);
             
             Destroy(gameObject);
             GameManager.UpdateScore(pointvalue);
